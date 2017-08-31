@@ -2,7 +2,6 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const onBoardClick = require('./onBoardClick')
 const userEvents = require('./authEvents')
 $(() => {
   setAPIOrigin(location, config)
@@ -17,6 +16,7 @@ $(() => {
 // Auth event listeners
 $(() => {
   $('#sign-up').on('submit', userEvents.onSignUp)
+  $('new-game').on('submit', startNewGame)
 })
 
 // Game board event listeners
@@ -49,6 +49,9 @@ const displayO = function (event) {
 }
 
 let cells = ['', '', '', '', '', '', '', '', '']
+let turnCount = 0
+let player = null
+let gameStatus = 'active'
 
 const checkWin = function (cells, player) {
   if (
@@ -61,27 +64,36 @@ const checkWin = function (cells, player) {
     (cells[1] === player && cells[4] === player && cells[7] === player) ||
     (cells[2] === player && cells[5] === player && cells[8] === player)) {
     console.log('Player ' + player + ' won!')
+    gameStatus = 'inactive'
   } else if (turnCount === 9) {
     console.log("It's a tie!")
+    gameStatus = 'inactive'
   } else {
     console.log('Keep going!')
   }
 }
 
-let turnCount = 0
-let player = null
-
 const game = function (event) {
-  if (turnCount % 2 === 0) {
-    displayX(event)
-    cells[$(event.target).attr('id')] = 'x'
-    turnCount += 1
-    player = 'x'
-  } else {
-    displayO(event)
-    cells[$(event.target).attr('id')] = 'o'
-    turnCount += 1
-    player = 'o'
+  if (gameStatus === 'active') {
+    if (turnCount % 2 === 0) {
+      displayX(event)
+      cells[$(event.target).attr('id')] = 'x'
+      turnCount += 1
+      player = 'x'
+    } else {
+      displayO(event)
+      cells[$(event.target).attr('id')] = 'o'
+      turnCount += 1
+      player = 'o'
+    }
+    checkWin(cells, player)
+    console.log(turnCount)
+    console.log(gameStatus)
   }
-  checkWin(cells, player)
+}
+
+const startNewGame = function (event) {
+  turnCount = 0
+  player = null
+  $('.box').text('')
 }
