@@ -33,20 +33,16 @@ $(() => {
 })
 
 const displayX = function (event) {
-  console.log(event.target)
   if ($(event.target).text() === '') {
     $(event.target).text('X')
-    console.log('you clicked!')
   } else {
     console.log('click another box!')
   }
 }
 
 const displayO = function (event) {
-  console.log(event.target)
   if ($(event.target).text() === '') {
     $(event.target).text('O')
-    console.log('you clicked!')
   } else {
     console.log('click another box!')
   }
@@ -54,33 +50,38 @@ const displayO = function (event) {
 
 let cells = ['', '', '', '', '', '', '', '', '']
 
-const checkWin = function () {
-  if (cells[0] === cells[4] === cells[8] ||
-    cells[2] === cells[4] === cells[6] ||
-    cells[0] === cells[1] === cells[2] ||
-    cells[3] === cells[4] === cells[5] ||
-    cells[6] === cells[7] === cells[8] ||
-    cells[0] === cells[3] === cells[6] ||
-    cells[1] === cells[4] === cells[7] ||
-    cells[2] === cells[5] === cells[8]) {
-    console.log('You WON')
+const checkWin = function (cells, player) {
+  if (
+    (cells[0] === player && cells[4] === player && cells[8] === player) ||
+    (cells[2] === player && cells[4] === player && cells[6] === player) ||
+    (cells[0] === player && cells[1] === player && cells[2] === player) ||
+    (cells[3] === player && cells[4] === player && cells[5] === player) ||
+    (cells[6] === player && cells[7] === player && cells[8] === player) ||
+    (cells[0] === player && cells[3] === player && cells[6] === player) ||
+    (cells[1] === player && cells[4] === player && cells[7] === player) ||
+    (cells[2] === player && cells[5] === player && cells[8] === player)) {
+    console.log('Player ' + player + ' won!')
+  } else if (turnCount === 9) {
+    console.log("It's a tie!")
   } else {
-    console.log('keep trying')
+    console.log('Keep going!')
   }
 }
 
 let turnCount = 0
+let player = null
 
 const game = function (event) {
   if (turnCount % 2 === 0) {
     displayX(event)
     cells[$(event.target).attr('id')] = 'x'
     turnCount += 1
+    player = 'x'
   } else {
     displayO(event)
     cells[$(event.target).attr('id')] = 'o'
     turnCount += 1
+    player = 'o'
   }
-  checkWin()
-  console.log(cells)
+  checkWin(cells, player)
 }
