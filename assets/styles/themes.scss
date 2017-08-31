@@ -1,0 +1,37 @@
+body {
+  background-color: $blue-bg-color;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.box {
+  border: 2px solid $white;
+  height: 110px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.xo {
+  font-size: 80px;
+  text-align: center;
+}
+
+.r1c1, .r1c2, .r1c3 {
+  border-top: none;
+}
+
+.r3c1, .r3c2, .r3c3 {
+  border-bottom: none;
+}
+
+.r1c1, .r2c1, .r3c1 {
+  border-left: none;
+}
+
+.r1c3, .r2c3, .r3c3 {
+  border-right: none;
+}
