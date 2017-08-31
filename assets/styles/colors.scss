@@ -1,3 +1,12 @@
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
 $black: #000;
 $white: #fff;
 $blue-bg-color: rgb(146, 188, 233);
+$textcolor: shade($blue-bg-color, 40%);

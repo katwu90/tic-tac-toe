@@ -7,31 +7,45 @@ body {
 }
 
 .box {
-  border: 2px solid $white;
-  height: 110px;
+  border: 3px solid $white;
+  color: $textcolor;
+  font-size: 80px;
+  height: 120px;
+  text-align: center;
 }
 
 h1 {
+  color: $textcolor;
+  font-size: 70px;
+  margin: 25px;
   text-align: center;
 }
 
 .xo {
-  font-size: 80px;
+  font-size: 70px;
   text-align: center;
 }
 
-.r1c1, .r1c2, .r1c3 {
-  border-top: none;
+.r1c1,
+.r1c2,
+.r1c3 {
+  border-top: 0;
 }
 
-.r3c1, .r3c2, .r3c3 {
-  border-bottom: none;
+.r3c1,
+.r3c2,
+.r3c3 {
+  border-bottom: 0;
 }
 
-.r1c1, .r2c1, .r3c1 {
-  border-left: none;
+.r1c1,
+.r2c1,
+.r3c1 {
+  border-left: 0;
 }
 
-.r1c3, .r2c3, .r3c3 {
-  border-right: none;
+.r1c3,
+.r2c3,
+.r3c3 {
+  border-right: 0;
 }
