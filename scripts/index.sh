@@ -1,9 +1,8 @@
 API="${API_ORIGIN:-http://tic-tac-toe.wdibos.com}"
-URL_PATH="/sign-out/$ID"
+URL_PATH="/games"
 
 curl "${API}${URL_PATH}" \
   --include \
-  --request DELETE \
-  --header "Authorization: Token token=$TOKEN"\
+  --request GET \
 
 echo
