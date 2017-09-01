@@ -14,7 +14,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  console.log(data)
   event.preventDefault()
   authApi.signIn(data)
     .then(authUi.signInSuccess)

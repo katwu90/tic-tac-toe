@@ -1,7 +1,6 @@
 'use strict'
 const store = require('./store')
 const signUpSuccess = function (data) {
-  console.log('Successfully signed up!')
   $('.auth-message').text('Successfully signed up!')
   $('#sign-up').hide()
 }
@@ -11,7 +10,6 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
-  console.log('Successfully signed in!')
   $('.auth-message').text('Successfully signed in!')
   store.user = data.user
   $('#change-password').show()
