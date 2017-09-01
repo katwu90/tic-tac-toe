@@ -1,8 +1,8 @@
 'use strict'
 
-const cells = ['', '', '', '', '', '', '', '', '']
+let cells = ['', '', '', '', '', '', '', '', '']
 let turnCount = 0
-let player = null
+let player = 'x'
 let gameStatus = 'active'
 
 const displayX = function (event) {
@@ -55,9 +55,12 @@ const game = function (event) {
 }
 
 const startNewGame = function (event) {
+  event.preventDefault()
   turnCount = 0
-  player = null
+  player = 'x'
+  gameStatus = 'active'
   $('.box').text('')
+  cells = ['', '', '', '', '', '', '', '', '']
 }
 
 module.exports = {
