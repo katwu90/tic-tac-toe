@@ -16,24 +16,28 @@ const gameData = {
 }
 
 const checkWin = function (cells, player) {
-  if (
-    (cells[0] === player && cells[4] === player && cells[8] === player) ||
-    (cells[2] === player && cells[4] === player && cells[6] === player) ||
-    (cells[0] === player && cells[1] === player && cells[2] === player) ||
-    (cells[3] === player && cells[4] === player && cells[5] === player) ||
-    (cells[6] === player && cells[7] === player && cells[8] === player) ||
-    (cells[0] === player && cells[3] === player && cells[6] === player) ||
-    (cells[1] === player && cells[4] === player && cells[7] === player) ||
-    (cells[2] === player && cells[5] === player && cells[8] === player)) {
-    $('h1').text('Player ' + player + ' WON!')
-    gameData.game.over = true
-  } else if (turnCount === 9) {
-    $('h1').text("It's a TIE!")
-    gameData.game.over = true
-  } else if (turnCount % 2 === 0) {
-    $('h1').text("Player X's Turn")
-  } else if (turnCount % 2 === 1) {
-    $('h1').text("Player O's Turn")
+  if (gameData.game.over === false) {
+    if (
+      (cells[0] === player && cells[4] === player && cells[8] === player) ||
+      (cells[2] === player && cells[4] === player && cells[6] === player) ||
+      (cells[0] === player && cells[1] === player && cells[2] === player) ||
+      (cells[3] === player && cells[4] === player && cells[5] === player) ||
+      (cells[6] === player && cells[7] === player && cells[8] === player) ||
+      (cells[0] === player && cells[3] === player && cells[6] === player) ||
+      (cells[1] === player && cells[4] === player && cells[7] === player) ||
+      (cells[2] === player && cells[5] === player && cells[8] === player)) {
+      $('h1').text('Player ' + player + ' WON!')
+      gameData.game.over = true
+      gameApi.updateGame(gameData)
+    } else if (turnCount === 9) {
+      $('h1').text("It's a TIE!")
+      gameData.game.over = true
+      gameApi.updateGame(gameData)
+    } else if (turnCount % 2 === 0) {
+      $('h1').text("Player X's Turn")
+    } else if (turnCount % 2 === 1) {
+      $('h1').text("Player O's Turn")
+    }
   }
 }
 
@@ -60,7 +64,7 @@ const updateGameSuccess = function (data) {
   checkWin(store.game.cells, gameData.game.cell.value)
 }
 
-const startNewGame = function (event) {
+const onStartNewGame = function (event) {
   event.preventDefault()
   turnCount = 0
   gameData.game.cell.value = 'x'
@@ -72,8 +76,16 @@ const startNewGame = function (event) {
     .catch(gameUi.newGameFailure)
 }
 
+const onGetGames = function (event) {
+  event.preventDefault()
+  gameApi.indexGames()
+    .then(gameUi.indexGameSuccess)
+    .catch(gameUi.indexGameFailure)
+}
+
 module.exports = {
   game,
-  startNewGame,
-  gameData
+  onStartNewGame,
+  gameData,
+  onGetGames
 }

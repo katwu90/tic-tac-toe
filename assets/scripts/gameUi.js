@@ -14,8 +14,21 @@ const updateGameFailure = function (err) {
   console.log(err)
 }
 
+const indexGameSuccess = function (data) {
+  console.log(data)
+  const totalcompletedgames = data.games.length
+  $('.completed-games').text('You have played ' + totalcompletedgames + ' complete games!')
+  console.log(totalcompletedgames)
+}
+
+const indexGameFailure = function (err) {
+  console.log(err)
+}
+
 module.exports = {
   newGameSuccess,
   newGameFailure,
-  updateGameFailure
+  updateGameFailure,
+  indexGameSuccess,
+  indexGameFailure
 }

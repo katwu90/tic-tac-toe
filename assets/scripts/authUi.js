@@ -41,7 +41,7 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  $('.auth-message').text('Error on change password!')
+  $('.auth-message').text('Error on signing out!')
 }
 module.exports = {
   signUpSuccess,
