@@ -19,6 +19,7 @@ At each player's turn, the `game` function updates the API on the move that the 
 
 ## Wireframes
 [Initial Wireframe](https://i.imgur.com/v22wWOa.jpg?1)
+[Current Wireframe](https://i.imgur.com/9KhQCnw.jpg)
 
 ## User Stories
 - As a user, I can create an account.
@@ -33,4 +34,7 @@ At each player's turn, the `game` function updates the API on the move that the 
 - As a user, I will know when a player has won the game.
 
 ## Unsolved Problems
-Currently, an unsolved problem I have is that when I sign in and then sign out, my user info (email & password) are autofilled in. I would like the input to be empty after signing out.
+One unsolved problem I have is when I sign in and then sign out, the message
+`"Directions: Click Start New Game to play!"` still appears on the screen. I have
+tried hiding it on success of signing out but it does not work which is strange
+since I hide and show many other divs and text after signing out.

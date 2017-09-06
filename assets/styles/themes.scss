@@ -1,5 +1,7 @@
 body {
   background-color: $blue-bg-color;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .container {
@@ -9,13 +11,19 @@ body {
 .box {
   border: 3px solid $white;
   color: $textcolor;
+  font-family: 'Pacifico', cursive;
   font-size: 60px;
   height: 110px;
   padding: 5px;
   text-align: center;
 }
 
+.nav {
+  padding: 5px;
+}
+
 h1 {
+  clear: both;
   color: $textcolor;
   font-family: 'Lobster', cursive;
   font-size: 55px;
@@ -49,8 +57,25 @@ h1 {
 
 .auth-message,
 .directions {
+  clear: both;
   color: $textcolor;
-  font-family: 'Raleway', sans-serif;
-  font-size: 18px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 22px;
   text-align: center;
+  margin: 3px;
+  padding: 3px;
+}
+
+.gamebutton {
+  text-align: right;
+}
+
+.rightside {
+  margin: 5px;
+}
+
+.creator {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
 }

@@ -1,7 +1,8 @@
 'use strict'
 const store = require('./store')
 const signUpSuccess = function (data) {
-  $('.auth-message').text('Successfully signed up!')
+  $('.auth-message').text('Successfully signed up! Please sign in.')
+  $('.directions').text('')
   $('.signup').hide()
   $('#sign-up').trigger('reset')
 }
@@ -41,9 +42,9 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
-  console.log('Successfully signed out!')
-  $('.auth-message').text('Successfully signed out!')
   store.user = null
+  $('.auth-message').text('Successfully signed out! To play, please sign in.')
+  $('.directons').hide()
   $('.changepassword').hide()
   $('.signin').show()
   $('#sign-in').trigger('reset')
@@ -58,6 +59,7 @@ const signOutSuccess = function () {
 const signOutFailure = function () {
   $('.auth-message').text('Error on signing out!')
 }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,

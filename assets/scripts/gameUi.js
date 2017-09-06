@@ -17,7 +17,7 @@ const updateGameFailure = function () {
 
 const indexGameSuccess = function (data) {
   const totalcompletedgames = data.games.length
-  $('.auth-message').text('You have played ' + totalcompletedgames + ' complete games!')
+  $('.auth-message').text('You have played ' + totalcompletedgames + ' complete game(s)!')
 }
 
 const indexGameFailure = function () {
