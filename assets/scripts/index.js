@@ -15,8 +15,11 @@ $(() => {
 // require('./example')
 
 $(() => {
-  $('#change-password').hide()
-  $('#sign-out').hide()
+  $('.container').hide()
+  $('.signout').hide()
+  $('.changepassword').hide()
+  $('#games').hide()
+  $('#new-game').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)

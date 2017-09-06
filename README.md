@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-## Technologies used for this Tic-Tac-Toe game:
+## Technologies Used
 - HTML/CSS/SASS/Bootstrap
 - DOM manipulation
 - Javascript/JQuery/AJAX

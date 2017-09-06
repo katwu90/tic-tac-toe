@@ -29,10 +29,12 @@ const checkWin = function (cells, player) {
       $('h1').text('Player ' + player + ' WON!')
       gameData.game.over = true
       gameApi.updateGame(gameData)
+      $('.directions').text('Click Start New Game to play another round!')
     } else if (turnCount === 9) {
       $('h1').text("It's a TIE!")
       gameData.game.over = true
       gameApi.updateGame(gameData)
+      $('.directions').text('Click Start New Game to play another round!')
     } else if (turnCount % 2 === 0) {
       $('h1').text("Player X's Turn")
     } else if (turnCount % 2 === 1) {
@@ -66,6 +68,9 @@ const updateGameSuccess = function (data) {
 
 const onStartNewGame = function (event) {
   event.preventDefault()
+  $('.directions').text('')
+  $('.auth-message').text('')
+  $('.container').show()
   turnCount = 0
   gameData.game.cell.value = 'x'
   gameData.game.over = false

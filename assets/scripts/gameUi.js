@@ -1,3 +1,4 @@
+
 'use strict'
 const store = require('./store')
 // const gameEngine = require('./gameEngine')
@@ -7,22 +8,20 @@ const newGameSuccess = function (data) {
 }
 
 const newGameFailure = function () {
-  console.log('Failed to create new game')
+  $('.auth-message').text('Failed to create new game')
 }
 
-const updateGameFailure = function (err) {
-  console.log(err)
+const updateGameFailure = function () {
+  $('.auth-message').text('Failed to update game')
 }
 
 const indexGameSuccess = function (data) {
-  console.log(data)
   const totalcompletedgames = data.games.length
-  $('.completed-games').text('You have played ' + totalcompletedgames + ' complete games!')
-  console.log(totalcompletedgames)
+  $('.auth-message').text('You have played ' + totalcompletedgames + ' complete games!')
 }
 
-const indexGameFailure = function (err) {
-  console.log(err)
+const indexGameFailure = function () {
+  $('.auth-message').text('Failed to get games played!')
 }
 
 module.exports = {
