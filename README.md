@@ -17,6 +17,8 @@ Next, I created and designed an empty game board. I used Bootstrap to create my 
 
 At each player's turn, the `game` function updates the API on the move that the player made with a PATCH request. Then the `checkWin` function is invoked to check for whether there was a winner after the player made a move. If there is a winner then the game ends, if there is no winner then the `checkWin` function will see if there was a tie. A tie is determined by whether there has been 9 moves made. If there is no winner and 9 moves have been made then it is a tie. Otherwise, the `checkWin` function will tell the user which player's turn it is.
 
+Another strategy that I used very often is `console.log()`. Every step of the way, I used `console.log` to check what is being put out. It is very helpful for debugging!
+
 ## Wireframes
 - [Initial Wireframe](https://i.imgur.com/v22wWOa.jpg?1)
 - [Current Wireframe](https://i.imgur.com/9KhQCnw.jpg)
